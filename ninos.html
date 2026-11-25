@@ -6,116 +6,76 @@
   <title>DIG.MON — Niños Elegidos</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .arcade-box {
-      box-shadow: 4px 4px 0px #1A1600;
-    }
-    .arcade-btn:active {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0px #1A1600;
-    }
+    .arcade-box { box-shadow: 4px 4px 0px #1A1600; }
+    .arcade-btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0px #1A1600; }
   </style>
 </head>
 <body class="bg-[#FFD400] text-[#1A1600] min-h-screen p-4 font-sans">
-  <div class="max-w-md mx-auto flex flex-col gap-4">
+  <div class="max-w-md mx-auto flex flex-col gap-3">
     <header class="flex items-center justify-between gap-2 bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3">
-      <a href="index.html" class="arcade-btn px-3 py-1.5 bg-[#005CBA] text-white font-bold text-xs uppercase border-2 border-[#1A1600] rounded">
-        &larr; INICIO
-      </a>
-      <span class="font-mono text-xs font-bold uppercase">NIÑOS ELEGIDOS · 08</span>
-      <a href="animaldigital.html" class="arcade-btn px-3 py-1.5 bg-[#FF6B00] text-[#1A0800] font-bold text-xs uppercase border-2 border-[#1A1600] rounded">
-        EVOL &rarr;
-      </a>
+      <a href="index.html" class="arcade-btn px-3 py-1.5 bg-[#FFE177] font-mono text-xs font-bold uppercase border-2 border-[#1A1600] rounded">&larr; INICIO</a>
+      <span class="font-mono text-xs font-bold uppercase">NINOS.HTML</span>
+      <a href="pantalla.html" class="arcade-btn px-3 py-1.5 bg-[#FF6B00] text-[#1A0800] font-mono text-xs font-bold uppercase border-2 border-[#1A1600] rounded">VS &rarr;</a>
     </header>
 
-    <section class="bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3">
-      <h1 class="font-black text-lg uppercase">Niños Elegidos</h1>
-      <p id="nino-seleccionado" class="font-mono text-xs font-bold mt-1 text-[#005CBA]">
-        SELECCIONÁ UN NIÑO PARA VER SU COMPAÑERO Y CRESTA
+    <div class="bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3">
+      <h1 class="font-black text-lg uppercase">Elegí un Niño</h1>
+      <p id="estado-nino" class="font-mono text-xs font-bold text-[#005CBA] mt-1">
+        SELECCIONADO: TAI &rarr; ANIMAL: AGUMON
       </p>
-    </section>
+      <a id="ir-animal" href="animal.html" class="arcade-btn mt-2 inline-block w-full text-center py-2.5 bg-[#005CBA] text-white font-black text-xs uppercase border-4 border-[#1A1600] rounded">
+        VER ANIMAL (AGUMON) &rarr;
+      </a>
+    </div>
 
-    <main id="lista-ninos" class="flex flex-col gap-3">
-      <button type="button" data-nino="Tai" data-digi="Agumon" data-cresta="Valor" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
-        <div>
-          <div class="font-black text-base">1. Tai</div>
-          <div class="font-mono text-xs">Compañero: Agumon · Cresta: Valor</div>
-        </div>
-        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+    <div class="flex flex-col gap-2">
+      <button type="button" data-nino="Tai" data-animal="Agumon" class="nino-btn arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <span class="font-black">Tai</span>
+        <span class="font-mono text-xs font-bold bg-[#FFE177] px-2 py-1 border-2 border-[#1A1600]">Agumon</span>
       </button>
-
-      <button type="button" data-nino="Matt" data-digi="Gabumon" data-cresta="Amistad" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
-        <div>
-          <div class="font-black text-base">2. Matt</div>
-          <div class="font-mono text-xs">Compañero: Gabumon · Cresta: Amistad</div>
-        </div>
-        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+      <button type="button" data-nino="Matt" data-animal="Gabumon" class="nino-btn arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <span class="font-black">Matt</span>
+        <span class="font-mono text-xs font-bold bg-[#FFE177] px-2 py-1 border-2 border-[#1A1600]">Gabumon</span>
       </button>
-
-      <button type="button" data-nino="Sora" data-digi="Biyomon" data-cresta="Amor" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
-        <div>
-          <div class="font-black text-base">3. Sora</div>
-          <div class="font-mono text-xs">Compañero: Biyomon · Cresta: Amor</div>
-        </div>
-        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+      <button type="button" data-nino="Sora" data-animal="Biyomon" class="nino-btn arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <span class="font-black">Sora</span>
+        <span class="font-mono text-xs font-bold bg-[#FFE177] px-2 py-1 border-2 border-[#1A1600]">Biyomon</span>
       </button>
-
-      <button type="button" data-nino="Izzy" data-digi="Tentomon" data-cresta="Conocimiento" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
-        <div>
-          <div class="font-black text-base">4. Izzy</div>
-          <div class="font-mono text-xs">Compañero: Tentomon · Cresta: Conocimiento</div>
-        </div>
-        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+      <button type="button" data-nino="Izzy" data-animal="Tentomon" class="nino-btn arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <span class="font-black">Izzy</span>
+        <span class="font-mono text-xs font-bold bg-[#FFE177] px-2 py-1 border-2 border-[#1A1600]">Tentomon</span>
       </button>
-
-      <button type="button" data-nino="Mimi" data-digi="Palmon" data-cresta="Sinceridad" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
-        <div>
-          <div class="font-black text-base">5. Mimi</div>
-          <div class="font-mono text-xs">Compañero: Palmon · Cresta: Sinceridad</div>
-        </div>
-        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+      <button type="button" data-nino="Mimi" data-animal="Palmon" class="nino-btn arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <span class="font-black">Mimi</span>
+        <span class="font-mono text-xs font-bold bg-[#FFE177] px-2 py-1 border-2 border-[#1A1600]">Palmon</span>
       </button>
-
-      <button type="button" data-nino="Joe" data-digi="Gomamon" data-cresta="Confiabilidad" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
-        <div>
-          <div class="font-black text-base">6. Joe</div>
-          <div class="font-mono text-xs">Compañero: Gomamon · Cresta: Confiabilidad</div>
-        </div>
-        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+      <button type="button" data-nino="Joe" data-animal="Gomamon" class="nino-btn arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <span class="font-black">Joe</span>
+        <span class="font-mono text-xs font-bold bg-[#FFE177] px-2 py-1 border-2 border-[#1A1600]">Gomamon</span>
       </button>
-
-      <button type="button" data-nino="T.K." data-digi="Patamon" data-cresta="Esperanza" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
-        <div>
-          <div class="font-black text-base">7. T.K.</div>
-          <div class="font-mono text-xs">Compañero: Patamon · Cresta: Esperanza</div>
-        </div>
-        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+      <button type="button" data-nino="T.K." data-animal="Patamon" class="nino-btn arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <span class="font-black">T.K.</span>
+        <span class="font-mono text-xs font-bold bg-[#FFE177] px-2 py-1 border-2 border-[#1A1600]">Patamon</span>
       </button>
-
-      <button type="button" data-nino="Kari" data-digi="Gatomon" data-cresta="Luz" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
-        <div>
-          <div class="font-black text-base">8. Kari</div>
-          <div class="font-mono text-xs">Compañero: Gatomon · Cresta: Luz</div>
-        </div>
-        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+      <button type="button" data-nino="Kari" data-animal="Gatomon" class="nino-btn arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <span class="font-black">Kari</span>
+        <span class="font-mono text-xs font-bold bg-[#FFE177] px-2 py-1 border-2 border-[#1A1600]">Gatomon</span>
       </button>
-    </main>
+    </div>
   </div>
 
   <script>
-    (function () {
-      var banner = document.getElementById("nino-seleccionado");
-      document.querySelectorAll(".nino-card").forEach(function (card) {
-        card.addEventListener("click", function () {
-          var nino = card.getAttribute("data-nino");
-          var digi = card.getAttribute("data-digi");
-          var cresta = card.getAttribute("data-cresta");
-          banner.textContent = "ACTIVO: " + nino.toUpperCase() + " + " + digi.toUpperCase() + " (CRESTA: " + cresta.toUpperCase() + ")";
-          try {
-            localStorage.setItem("digimon_nino_activo", JSON.stringify({ nino: nino, digi: digi, cresta: cresta }));
-          } catch (e) {}
-        });
+    var estado = document.getElementById("estado-nino");
+    var irAnimal = document.getElementById("ir-animal");
+    document.querySelectorAll(".nino-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nino = btn.getAttribute("data-nino");
+        var animal = btn.getAttribute("data-animal");
+        estado.textContent = "SELECCIONADO: " + nino.toUpperCase() + " -> ANIMAL: " + animal.toUpperCase();
+        irAnimal.textContent = "VER ANIMAL (" + animal.toUpperCase() + ") ->";
+        try { localStorage.setItem("digimon_elegido", JSON.stringify({ nino: nino, animal: animal })); } catch (err) {}
       });
-    })();
+    });
   </script>
 </body>
 </html>
