@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DIG.MON — Niños Elegidos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .arcade-box {
+      box-shadow: 4px 4px 0px #1A1600;
+    }
+    .arcade-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #1A1600;
+    }
+  </style>
+</head>
+<body class="bg-[#FFD400] text-[#1A1600] min-h-screen p-4 font-sans">
+  <div class="max-w-md mx-auto flex flex-col gap-4">
+    <header class="flex items-center justify-between gap-2 bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3">
+      <a href="index.html" class="arcade-btn px-3 py-1.5 bg-[#005CBA] text-white font-bold text-xs uppercase border-2 border-[#1A1600] rounded">
+        &larr; INICIO
+      </a>
+      <span class="font-mono text-xs font-bold uppercase">NIÑOS ELEGIDOS · 08</span>
+      <a href="animaldigital.html" class="arcade-btn px-3 py-1.5 bg-[#FF6B00] text-[#1A0800] font-bold text-xs uppercase border-2 border-[#1A1600] rounded">
+        EVOL &rarr;
+      </a>
+    </header>
+
+    <section class="bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3">
+      <h1 class="font-black text-lg uppercase">Niños Elegidos</h1>
+      <p id="nino-seleccionado" class="font-mono text-xs font-bold mt-1 text-[#005CBA]">
+        SELECCIONÁ UN NIÑO PARA VER SU COMPAÑERO Y CRESTA
+      </p>
+    </section>
+
+    <main id="lista-ninos" class="flex flex-col gap-3">
+      <button type="button" data-nino="Tai" data-digi="Agumon" data-cresta="Valor" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <div>
+          <div class="font-black text-base">1. Tai</div>
+          <div class="font-mono text-xs">Compañero: Agumon · Cresta: Valor</div>
+        </div>
+        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+      </button>
+
+      <button type="button" data-nino="Matt" data-digi="Gabumon" data-cresta="Amistad" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <div>
+          <div class="font-black text-base">2. Matt</div>
+          <div class="font-mono text-xs">Compañero: Gabumon · Cresta: Amistad</div>
+        </div>
+        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+      </button>
+
+      <button type="button" data-nino="Sora" data-digi="Biyomon" data-cresta="Amor" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <div>
+          <div class="font-black text-base">3. Sora</div>
+          <div class="font-mono text-xs">Compañero: Biyomon · Cresta: Amor</div>
+        </div>
+        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+      </button>
+
+      <button type="button" data-nino="Izzy" data-digi="Tentomon" data-cresta="Conocimiento" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <div>
+          <div class="font-black text-base">4. Izzy</div>
+          <div class="font-mono text-xs">Compañero: Tentomon · Cresta: Conocimiento</div>
+        </div>
+        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+      </button>
+
+      <button type="button" data-nino="Mimi" data-digi="Palmon" data-cresta="Sinceridad" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <div>
+          <div class="font-black text-base">5. Mimi</div>
+          <div class="font-mono text-xs">Compañero: Palmon · Cresta: Sinceridad</div>
+        </div>
+        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+      </button>
+
+      <button type="button" data-nino="Joe" data-digi="Gomamon" data-cresta="Confiabilidad" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <div>
+          <div class="font-black text-base">6. Joe</div>
+          <div class="font-mono text-xs">Compañero: Gomamon · Cresta: Confiabilidad</div>
+        </div>
+        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+      </button>
+
+      <button type="button" data-nino="T.K." data-digi="Patamon" data-cresta="Esperanza" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <div>
+          <div class="font-black text-base">7. T.K.</div>
+          <div class="font-mono text-xs">Compañero: Patamon · Cresta: Esperanza</div>
+        </div>
+        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+      </button>
+
+      <button type="button" data-nino="Kari" data-digi="Gatomon" data-cresta="Luz" class="nino-card arcade-btn text-left bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-3 flex justify-between items-center">
+        <div>
+          <div class="font-black text-base">8. Kari</div>
+          <div class="font-mono text-xs">Compañero: Gatomon · Cresta: Luz</div>
+        </div>
+        <span class="font-mono text-xs font-bold px-2 py-1 bg-[#FFE177] border-2 border-[#1A1600]">NV.01</span>
+      </button>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var banner = document.getElementById("nino-seleccionado");
+      document.querySelectorAll(".nino-card").forEach(function (card) {
+        card.addEventListener("click", function () {
+          var nino = card.getAttribute("data-nino");
+          var digi = card.getAttribute("data-digi");
+          var cresta = card.getAttribute("data-cresta");
+          banner.textContent = "ACTIVO: " + nino.toUpperCase() + " + " + digi.toUpperCase() + " (CRESTA: " + cresta.toUpperCase() + ")";
+          try {
+            localStorage.setItem("digimon_nino_activo", JSON.stringify({ nino: nino, digi: digi, cresta: cresta }));
+          } catch (e) {}
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
