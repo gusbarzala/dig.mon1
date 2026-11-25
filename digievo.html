@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DIG.MON — Botón DIGIEVOL Agumon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .arcade-box {
+      box-shadow: 5px 5px 0px #1A1600;
+    }
+    .arcade-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #1A1600;
+    }
+  </style>
+</head>
+<body class="bg-[#FFD400] text-[#1A1600] min-h-screen flex items-center justify-center p-4 font-sans">
+  <div class="w-full max-w-md bg-[#FFF0C6] border-4 border-[#1A1600] rounded arcade-box p-5 flex flex-col gap-4">
+    <div class="flex items-center justify-between border-b-2 border-[#1A1600] pb-2">
+      <span class="font-mono text-xs font-bold uppercase bg-[#FFE177] px-2 py-1 border-2 border-[#1A1600]">
+        LÍNEA AGUMON · ALL FORMS
+      </span>
+      <span id="agumon-contador" class="font-mono text-xs font-bold uppercase">
+        1 / 16
+      </span>
+    </div>
+
+    <div class="bg-[#FFE177] border-4 border-[#1A1600] rounded p-4 text-center flex flex-col gap-1">
+      <span id="agumon-etapa" class="font-mono text-xs font-bold uppercase text-[#005CBA]">
+        ETAPA ROOKIE · BASE
+      </span>
+      <h1 id="agumon-nombre" class="text-2xl font-black uppercase tracking-wide">
+        Agumon
+      </h1>
+      <p id="agumon-linea" class="text-xs font-mono text-[#3B2F00]">
+        Rama principal: Clásica / Cresta del Valor
+      </p>
+    </div>
+
+    <button
+      id="btn-digevol"
+      type="button"
+      class="arcade-btn w-full py-3.5 px-4 bg-[#005CBA] text-white font-black text-base uppercase tracking-wider border-4 border-[#1A1600] rounded arcade-box cursor-pointer"
+    >
+      DIGIEVOL
+    </button>
+
+    <div class="flex gap-2">
+      <button
+        id="btn-reiniciar-agumon"
+        type="button"
+        class="arcade-btn flex-1 py-2 px-3 bg-[#FF6B00] text-[#1A0800] font-bold text-xs uppercase border-2 border-[#1A1600] rounded cursor-pointer"
+      >
+        VOLVER A AGUMON
+      </button>
+    </div>
+
+    <div id="agumon-banner" class="bg-white border-2 border-[#1A1600] rounded p-2.5 font-mono text-xs font-bold">
+      ESTADO: Agumon listo. Pulsá DIGIEVOL para avanzar por todas sus formas.
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var formasAgumon = [
+        { nombre: "Agumon", etapa: "Rookie", linea: "Base · Niño Elegido: Tai" },
+        { nombre: "GeoGreymon", etapa: "Champion", linea: "Línea Savers / Data Squad" },
+        { nombre: "Greymon", etapa: "Champion", linea: "Línea clásica · Cresta del Valor" },
+        { nombre: "Tyrannomon", etapa: "Champion", linea: "Rama dinosaurio / alternativa" },
+        { nombre: "DarkTyrannomon", etapa: "Champion", linea: "Rama virus / alternativa" },
+        { nombre: "MetalGreymon (Virus)", etapa: "Ultimate", linea: "Línea clásica · Cyber-brazo" },
+        { nombre: "MetalGreymon (Vacuna)", etapa: "Ultimate", linea: "Línea clásica · Armadura azul" },
+        { nombre: "RizeGreymon", etapa: "Ultimate", linea: "Línea Savers / Data Squad" },
+        { nombre: "SkullGreymon", etapa: "Ultimate", linea: "Evolución oscura por exceso de valor" },
+        { nombre: "WarGreymon", etapa: "Mega", linea: "Línea clásica · Dramon Killers" },
+        { nombre: "BlackWarGreymon", etapa: "Mega", linea: "Variante oscura / independiente" },
+        { nombre: "VictoryGreymon", etapa: "Mega", linea: "Línea V-Tamer / espada dramon" },
+        { nombre: "ShineGreymon", etapa: "Mega", linea: "Línea Savers · Geo espada" },
+        { nombre: "BlitzGreymon", etapa: "Mega", linea: "Variante plasma / rayos" },
+        { nombre: "ShineGreymon Burst Mode", etapa: "Mega+", linea: "Modo explosión / energía máxima" },
+        { nombre: "Omnimon", etapa: "Ultra / Jogress", linea: "Fusión WarGreymon + MetalGarurumon" }
+      ];
+
+      var indice = 0;
+      var btnDigevol = document.getElementById("btn-digevol");
+      var btnReiniciar = document.getElementById("btn-reiniciar-agumon");
+      var nombreEl = document.getElementById("agumon-nombre");
+      var etapaEl = document.getElementById("agumon-etapa");
+      var lineaEl = document.getElementById("agumon-linea");
+      var contadorEl = document.getElementById("agumon-contador");
+      var bannerEl = document.getElementById("agumon-banner");
+
+      function renderForma() {
+        var actual = formasAgumon[indice];
+        nombreEl.textContent = actual.nombre;
+        etapaEl.textContent = "ETAPA " + actual.etapa.toUpperCase();
+        lineaEl.textContent = actual.linea;
+        contadorEl.textContent = (indice + 1) + " / " + formasAgumon.length;
+        bannerEl.textContent = "DIGIEVOL ACTIVA -> " + actual.nombre + " (" + actual.etapa + ")";
+      }
+
+      if (btnDigevol) {
+        btnDigevol.addEventListener("click", function () {
+          indice = (indice + 1) % formasAgumon.length;
+          renderForma();
+        });
+      }
+
+      if (btnReiniciar) {
+        btnReiniciar.addEventListener("click", function () {
+          indice = 0;
+          renderForma();
+        });
+      }
+
+      renderForma();
+    })();
+  </script>
+</body>
+</html>
