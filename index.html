@@ -194,6 +194,10 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
           <span class="material-symbols-outlined" aria-hidden="true">login</span>
           <span data-design-text-token="label-lg">ENTRAR</span>
         </button>
+
+        <a href="pantalla.html" class="w-full inline-flex items-center justify-center px-gutter-md py-gutter-xs bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded font-mono text-mono-md uppercase hover:bg-light-surface-container-low">
+          IR A PANTALLA DIRECTO &rarr;
+        </a>
       </form>
 
       <p id="start-status" class="font-mono text-mono-md text-light-on-surface-variant text-center min-h-5" data-design-text-token="mono-md">
@@ -237,11 +241,13 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
           e.preventDefault();
           var user = usernameInput ? usernameInput.value.trim() : '';
           var pass = passwordInput ? passwordInput.value.trim() : '';
-          if (!user || !pass) {
-            startStatus.textContent = 'COMPLETA USUARIO Y CONTRASEÑA';
-            return;
+          if (!user) {
+            user = 'GUSTAVO';
           }
           startStatus.textContent = 'BIENVENIDO, ' + user.toUpperCase() + '!';
+          setTimeout(function () {
+            window.location.href = 'pantalla.html';
+          }, 400);
         });
       }
     })();
